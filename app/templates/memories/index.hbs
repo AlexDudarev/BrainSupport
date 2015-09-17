@@ -1,0 +1,32 @@
+{{#if model.length}}
+    <section id="main" class="row">
+        <div class="col-md-2">
+            <div class="tree well">
+                <ul>
+                    <li>
+                        <span><i class="icon-folder-open"></i> Category</span>
+                        <ul>
+                            <li>
+                                <span><i class="icon-minus-sign"></i>Sub Category</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <ul id="memory-list">
+              {{#each model as |memory|}}
+                  <li>
+                    {{#if isEditing}}
+                      {{memory-input type="text" class="edit" value=bufferedTitle focus-out="doneEditing"
+                      insert-newline="doneEditing" escape-press="cancelEditing"}}
+                    {{else}}
+                      {{#memory-details memory=memory}}{{/memory-details}}
+                    {{/if}}
+                  </li>
+              {{/each}}
+            </ul>
+        </div>
+    </section>
+{{/if}}

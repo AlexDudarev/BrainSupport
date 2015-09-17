@@ -1,0 +1,6 @@
+
+<label {{ action "editMemory" memory on="doubleClick"}}
+        class="has-tooltip" data-tooltip-content="{{memory.title}}" data-tooltip-place="bottom">
+  {{memory.title}}
+</label>
+<span {{action "removeMemory" memory}} class="destroy glyphicon glyphicon-remove"></span>
