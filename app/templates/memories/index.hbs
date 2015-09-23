@@ -1,32 +1,27 @@
-{{#if model.length}}
-    <section id="main" class="row">
-        <div class="col-md-2">
-            <div class="tree well">
-                <ul>
-                    <li>
-                        <span><i class="icon-folder-open"></i> Category</span>
-                        <ul>
-                            <li>
-                                <span><i class="icon-minus-sign"></i>Sub Category</span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-10">
-            <ul id="memory-list">
-              {{#each model as |memory|}}
-                  <li>
-                    {{#if isEditing}}
-                      {{memory-input type="text" class="edit" value=bufferedTitle focus-out="doneEditing"
-                      insert-newline="doneEditing" escape-press="cancelEditing"}}
-                    {{else}}
-                      {{#memory-details memory=memory}}{{/memory-details}}
-                    {{/if}}
-                  </li>
-              {{/each}}
-            </ul>
-        </div>
-    </section>
-{{/if}}
+<section class="row">
+    <div class="col-md-2">
+      {{#categories/categories-tree-node}}{{/categories/categories-tree-node}}
+        <button class="btn btn-default">Edit Categories</button>
+    </div>
+    <div class="col-md-10">
+      {{#memory/memory-filter}}{{/memory/memory-filter}}
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Link</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Tags</th>
+                <th>Created</th>
+                <th>Until</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each model as |memory|}}
+              {{#memory-details memory=memory}}{{/memory-details}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

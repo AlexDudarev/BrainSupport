@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('memory-input', 'Integration | Component | memory input', {
+moduleForComponent('memory-details', 'Integration | Component | memory details', {
   integration: true
 });
 
@@ -11,15 +11,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{memory-input}}`);
+  this.render(hbs`{{memory-details}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#memory-input}}
+    {{#memory-details}}
       template block text
-    {{/memory-input}}
+    {{/memory-details}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
